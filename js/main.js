@@ -26,19 +26,24 @@ $.ajax(requestAllPosts).done(function loadAllPosts(allPosts) {
 });
 
 function clickPost(){
+    $('.div-info').off('click', clickPost);
     console.log($(this));
+
+    let userNumber=$(this).attr("userid");
+
+    // let myUrl="https://jsonplaceholder.typicode.com/users?id="
+
+    var requestUserOfPost = {
+        "url": `https://jsonplaceholder.typicode.com/users?id=${userNumber}`,
+        "method": "GET",
+        "timeout": 0,
+    };
+    $.ajax(requestUserOfPost).done(function (userOfPost) {
+        createModal();
+    });
 }
 
-// $("main").on("click", function(e){
-    
-//     console.log(e.target);
-//     // var requestUserOfPost = {
-//     //     "url": "https://jsonplaceholder.typicode.com/users?id=1",
-//     //     "method": "GET",
-//     //     "timeout": 0,
-//     //     };
-//     //     $.ajax(requestUserOfPost).done(function (response) {
-//     //     console.log(response);
-//     //     });
-
-// })
+function createModal(){
+    $("#modal-wrapper").removeClass("hidden");
+    console.log("werbf");
+}
