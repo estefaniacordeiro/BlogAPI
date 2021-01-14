@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    padding:0;
+    background-color: lightcoral;
+}
+
+h1{
+    color: blue;
+}
+
+.div-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.div-info{
+    width: 80%;
+    border: 1px solid rebeccapurple;
+}
