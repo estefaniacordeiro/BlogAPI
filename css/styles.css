@@ -62,16 +62,19 @@ h1{
     display: flex;
     flex-direction: column;
     overflow: auto;
+    position: relative;
 }
 
 .closed-modal {
-    /* display: flex;
-    justify-content: flex-end;
-    align-items: center; */
-    position: fixed;
-    /* text-align: right; */
-    background-color: coral;
+    /* width: 70%; */
+    position: absolute;
+    right: 15px;
     cursor: pointer;
+    justify-content: flex-end;
+}
+
+#closed-modal{
+    position: fixed;
 }
 
 .modal-content {

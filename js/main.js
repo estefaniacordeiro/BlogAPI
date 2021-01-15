@@ -64,6 +64,7 @@ function createModal(userOfPost,infoPost){
 
 function clickCloseModal() {
     $('#closed-modal').off('click', clickCloseModal);
+    $('.modal-content').text('');
     $("#modal-wrapper").addClass("hidden");
     $('.div-info').on("click", clickPost);
 }
