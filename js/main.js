@@ -90,7 +90,6 @@ function clickComments(loadComments) {
         divComment.append($(`<span>${element.body}<span>`));
         divComment.append($(`<p class="email">${element.email}</p>`));
         $(".modal-content").append(divComment);
-
     });
 }
 

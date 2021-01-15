@@ -65,19 +65,17 @@ h1{
 }
 
 .closed-modal {
-    height: 10%;
-    display: flex;
+    /* display: flex;
     justify-content: flex-end;
-    align-items: center;
-    padding-right: 10px;
-}
-
-#closed-modal {
+    align-items: center; */
+    position: fixed;
+    /* text-align: right; */
+    background-color: coral;
     cursor: pointer;
 }
 
 .modal-content {
-    padding: 10px 10px 10px 15px;
+    padding: 30px 10px 10px 15px;
     padding-right: 10px;
 }
 .modal-content > h2, h3, p {
