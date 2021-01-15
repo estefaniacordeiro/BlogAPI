@@ -1,11 +1,11 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding:0;
     font-family: 'Hachi Maru Pop', cursive;
 }
 
 body {
-    margin: 0;
-    padding:0;
     background-color: #eeeedf;
 }
 
@@ -25,7 +25,7 @@ h1{
     align-items: center;
     background-color: #b9d8d7;
     margin: 0 15px;
-    padding: 0 0 15px 5px;
+    padding: 15px;
     font-size: 12px;
 }
 
@@ -60,39 +60,36 @@ h1{
     height: 70%;
     background-color: #eeeedf;
     display: flex;
+    flex-direction: column;
+    overflow: auto;
 }
 
-/* .closed-modal {
-    width: 100%;
-} */
-/* 
-.modal--section {
-	background-color: rgba(184, 184, 184, 0.7);
-	width: 100%;
-	position: fixed;
-	z-index: 1000;
-	height: 100%;
-	top: 0;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	align-items: center;
+.closed-modal {
+    height: 10%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10px;
 }
-.add--event {
-	background-color:white;
-	width: fit-content;
-	padding-bottom: 10px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	transition: transform 1s;
-	transform: translateY(0%);
+
+#closed-modal {
+    cursor: pointer;
 }
-.closed--modal {
-	width: 100%;
-	text-align: right;
-	margin: 5px 15px 0 0;
-	cursor: pointer;
+
+.modal-content {
+    padding: 10px 10px 10px 15px;
+    padding-right: 10px;
 }
-*/
+.modal-content > h2, h3, p {
+    padding: 5px 0;
+}
+.comment {
+    padding: 5px 25px 5px 15px;
+    font-size: 12px;
+}
+.comment > h4, .comment > span, .comment > p {
+    padding: 10px 0;
+}
+.email {
+    font-style: italic;
+}
