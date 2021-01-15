@@ -95,16 +95,14 @@ function clickComments(loadComments) {
 }
 
 function deletePost(){
-    /* $('.delete-btn').off("click", deletePost); */
     let postNumber=$(this).attr("postid");
-    console.log($(this)[0].parentNode);
+
+    $(this)[0].parentNode.remove();
 
     var requestDeletePost = {
         "url": `https://jsonplaceholder.typicode.com/posts/${postNumber}`,
         "method": "DELETE",
         "timeout": 0,
     };
-    $.ajax(requestDeletePost).done(function (deletePost) {
-        console.log(deletePost,"eoo");
-    });
+    $.ajax(requestDeletePost).done();
 }
