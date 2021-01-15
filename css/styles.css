@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    padding:0;
+    padding: 0;
     font-family: 'Hachi Maru Pop', cursive;
 }
 
@@ -9,7 +9,7 @@ body {
     background-color: #eeeedf;
 }
 
-h1{
+h1 {
     color: #4f6466;
     margin-left: 25px;
 }
@@ -18,7 +18,7 @@ h1{
     margin-bottom: 25px;
 }
 
-.div-list{
+.div-list {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -33,18 +33,18 @@ h1{
     background-color: #9abbbb;
 }
 
-.div-info{
+.div-info {
     width: 80%;
     cursor: pointer;
 }
 
-#modal-wrapper{
+#modal-wrapper {
     width: 100%;
     height: 100%;
     background-color: rgba(100, 100, 100, 0.5);
     padding: 20px;
     position: fixed;
-    top:0;
+    top: 0;
     z-index: 99999;
     display: flex;
     justify-content: center;
@@ -60,37 +60,62 @@ h1{
     height: 70%;
     background-color: #eeeedf;
     display: flex;
-    flex-direction: column;
     overflow: auto;
     position: relative;
 }
 
 .closed-modal {
-    /* width: 70%; */
     position: absolute;
     right: 15px;
     cursor: pointer;
     justify-content: flex-end;
 }
 
-#closed-modal{
+#closed-modal {
     position: fixed;
 }
 
 .modal-content {
     padding: 30px 10px 10px 15px;
     padding-right: 10px;
+    width: 100%;
 }
-.modal-content > h2, h3, p {
+
+.modal-content>h2,
+h3,
+p {
     padding: 5px 0;
 }
+
 .comment {
     padding: 5px 25px 5px 15px;
     font-size: 12px;
 }
-.comment > h4, .comment > span, .comment > p {
+
+.comment>h4,
+.comment>span,
+.comment>p {
     padding: 10px 0;
 }
+
 .email {
     font-style: italic;
+}
+
+.form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.input-title, .input-body {
+    width: 70%;
+}
+
+.saveBtn {
+    padding: 10px;
+    border-radius: 15%;
+    background-color: #c7ccc1;
 }

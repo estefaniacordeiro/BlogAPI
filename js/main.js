@@ -17,7 +17,8 @@ function loadAllPosts(allPosts){
 
         divPost.append(divInfoPost);
 
-        let modifyBTN=($(`<button>modify</button>`));
+        let modifyBTN=($(`<button class="modify-btn" postid='${element.id}'>modify</button>`));
+        modifyBTN.on("click", modifyPost);
         divPost.append(modifyBTN);
 
         let deleteBTN=($(`<button class="delete-btn" postid='${element.id}'>delete</button>`));
@@ -73,7 +74,6 @@ function loadComments(){
     $("#commentsBtn").off("click", loadComments);
     $("#commentsBtn").addClass("hidden");
     let postIdHelp=$(this).attr("mypostid");
-    console.log(postIdHelp);
     var requestLoadComments = {
         "url": `https://jsonplaceholder.typicode.com/comments?postId=${postIdHelp}`,
         "method": "GET",
@@ -105,4 +105,63 @@ function deletePost(){
         "timeout": 0,
     };
     $.ajax(requestDeletePost).done();
+}
+
+function modifyPost() {
+    $('.modify-btn').off("click", modifyPost);
+    let postNumber=$(this).attr("postid");
+
+    $("#modal-wrapper").removeClass("hidden");
+    $('#closed-modal').on('click', clickCloseModify);
+
+    let form = $('<form class="form"></form>');
+    let labelTitle = $(`<h4 class="labelForm">Title:</h4>`);
+    let labelBody = $(`<h4 class="labelForm">Body:</h4>`);
+    let inputTitle=$("<textarea class='input-title'></textarea>")
+    let inputBody=$("<textarea class='input-body'></textarea>");
+    let saveBtn=$(`<button class='saveBtn' postid='${postNumber}'>Save</button>`);
+
+    form.append($(`<h2>Edit post</h2>`));
+    form.append(labelTitle);
+    form.append(inputTitle);
+    form.append(labelBody);
+    form.append(inputBody);
+    form.append(saveBtn);
+    $(".modal-content").append(form);
+    $('.modify-btn').on("click", modifyPost);
+    $('.saveBtn').on('click', saveForm);
+}
+
+function clickCloseModify() {
+    $('#closed-modal').off('click', clickCloseModify);
+    $('.modal-content').text('');
+    $("#modal-wrapper").addClass("hidden");
+    $('#closed-modal').on('click', clickCloseModify);
+}
+
+function saveForm(e) {
+    e.preventDefault();
+    let postNumber=$(this).attr("postid");
+    let newTitle=$(".input-title")[0].value;
+    let newBody=$('.input-body')[0].value;
+
+    var requestUpdatePost = {
+        "url": `https://jsonplaceholder.typicode.com/posts/${postNumber}`,
+        "method": "PATCH",
+        "timeout": 0,
+        "headers": {
+            "Content-Type": "application/json",
+        },
+        "data": JSON.stringify({"title":newTitle,"body":newBody}),
+    };
+    $.ajax(requestUpdatePost).done(function (updatePost) {
+        console.log(updatePost);
+        clickCloseModify();
+        changePost(updatePost);
+    });
+}
+
+function changePost(updatePost){
+    console.log(updatePost.id);
+    console.log($("[postid=updatePost.id]"));
 }
