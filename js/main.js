@@ -31,8 +31,6 @@ function clickPost(){
 
     let userNumber=$(this).attr("userid");
 
-    // let myUrl="https://jsonplaceholder.typicode.com/users?id="
-
     var requestUserOfPost = {
         "url": `https://jsonplaceholder.typicode.com/users?id=${userNumber}`,
         "method": "GET",
