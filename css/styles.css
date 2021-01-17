@@ -5,6 +5,13 @@
     font-family: 'Hachi Maru Pop', cursive;
 }
 
+html{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 body {
     background-color: #eeeedf;
 }
@@ -130,11 +137,16 @@ h1 {
 }
 .morePost-btn {
     margin-top: 15px;
-    /* width: 20%; */
 }
 
 .fa-trash, .fa-edit {
     cursor: pointer;
     font-size: 15px;
     color: #3d4d4e;
+}
+
+@media screen and (min-width: 1200px) {
+    body {
+        width: 70%;
+    }
 }
