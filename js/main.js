@@ -8,7 +8,7 @@ $.ajax(requestAllPosts).done(loadAllPosts);
 function loadAllPosts(allPosts){
     allPosts.forEach(element => {
         let divPost=($(`<div class='div-list'></div>`));
-        let divInfoPost =($(`<div class='div-info' userid='${element.userId}' postid='${element.id}'></div>`));
+        let divInfoPost =($(`<div class='div-info' userid='${element.userId}' postid='${element.id}' id='${element.id}'></div>`));
         divInfoPost.on("click", clickPost);
         let postTitle=($(`<h3>${element.title}</h3>`));
         divInfoPost.append(postTitle);
@@ -155,13 +155,13 @@ function saveForm(e) {
         "data": JSON.stringify({"title":newTitle,"body":newBody}),
     };
     $.ajax(requestUpdatePost).done(function (updatePost) {
-        console.log(updatePost);
         clickCloseModify();
         changePost(updatePost);
     });
 }
 
 function changePost(updatePost){
-    console.log(updatePost.id);
-    console.log($("[postid=updatePost.id]"));
+    let editPost=$(`[id = ${updatePost.id}]`)[0];
+    editPost.childNodes[0].innerHTML=updatePost.title;
+    editPost.childNodes[1].innerHTML=updatePost.body;
 }
