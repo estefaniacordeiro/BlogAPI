@@ -10,8 +10,9 @@ body {
 }
 
 h1 {
-    color: #4f6466;
-    margin-left: 25px;
+    color: #3d4d4e;
+    margin-left: 55px;
+    padding: 15px 0;
 }
 
 .wrapper {
@@ -69,6 +70,7 @@ h1 {
     right: 15px;
     cursor: pointer;
     justify-content: flex-end;
+    margin-right: 10px;
 }
 
 #closed-modal {
@@ -77,14 +79,13 @@ h1 {
 
 .modal-content {
     padding: 30px 10px 10px 15px;
-    padding-right: 10px;
+    padding-right: 30px;
     width: 100%;
+    color: #3d4d4e;
 }
 
-.modal-content>h2,
-h3,
-p {
-    padding: 5px 0;
+.modal-content>h2,h3,p {
+    padding: 7px 0;
 }
 
 .comment {
@@ -95,7 +96,7 @@ p {
 .comment>h4,
 .comment>span,
 .comment>p {
-    padding: 10px 0;
+    padding: 7px 0;
 }
 
 .email {
@@ -112,10 +113,19 @@ p {
 
 .input-title, .input-body {
     width: 70%;
+    padding: 5px;
+}
+.input-body {
+    height: 50%;
 }
 
-.saveBtn {
-    padding: 10px;
-    border-radius: 15%;
+.saveBtn, .commentsBtn{
+    padding: 5px 10px;
     background-color: #c7ccc1;
+}
+
+.fa-trash, .fa-edit {
+    cursor: pointer;
+    font-size: 15px;
+    color: #3d4d4e;
 }

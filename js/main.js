@@ -17,11 +17,11 @@ function loadAllPosts(allPosts){
 
         divPost.append(divInfoPost);
 
-        let modifyBTN=($(`<button class="modify-btn" postid='${element.id}'>modify</button>`));
+        let modifyBTN=($(`<p class="modify-btn" postid='${element.id}'><i class="fas fa-edit"></i></p>`));
         modifyBTN.on("click", modifyPost);
         divPost.append(modifyBTN);
 
-        let deleteBTN=($(`<button class="delete-btn" postid='${element.id}'>delete</button>`));
+        let deleteBTN=($(`<p class="delete-btn" postid='${element.id}'><i class="fas fa-trash"></i></p>`));
         deleteBTN.on("click", deletePost);
         divPost.append(deleteBTN);
 
@@ -59,7 +59,7 @@ function createModal(userOfPost,infoPost){
     $(".modal-content").append($(`<p class="email">${userOfPost[0].email}</p>`));
     $(".modal-content").append($('<h2>Comments:</h2>'));
     let myPostId=infoPost[0].attributes[2].value;
-    $(".modal-content").append($(`<button id="commentsBtn" mypostid="${myPostId}">Load comments</button>`));
+    $(".modal-content").append($(`<button id="commentsBtn" class="commentsBtn" mypostid="${myPostId}">Load comments</button>`));
     $("#commentsBtn").on("click", loadComments);
 }
 
