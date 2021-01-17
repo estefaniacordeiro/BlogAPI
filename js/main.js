@@ -1,5 +1,7 @@
+var flag=1;
+
 var requestAllPosts = {
-    "url": "https://jsonplaceholder.typicode.com/posts",
+    "url": "https://jsonplaceholder.typicode.com/posts?_start=0&_limit=15",
     "method": "GET",
     "timeout": 0,
 };
@@ -27,6 +29,12 @@ function loadAllPosts(allPosts){
 
         $("#postList").append(divPost);
     });
+    if(flag<85) {
+        let morePost=$("<button class='morePost-btn' id='morePost'>Load more post</button>");
+        morePost.on('click', loadMorePost);
+        $('#postList').append(morePost);
+        flag+=15;
+    }
 }
 
 function clickPost(){
@@ -164,4 +172,15 @@ function changePost(updatePost){
     let editPost=$(`[id = ${updatePost.id}]`)[0];
     editPost.childNodes[0].innerHTML=updatePost.title;
     editPost.childNodes[1].innerHTML=updatePost.body;
+}
+
+function loadMorePost() {
+    $(this).off('click', loadMorePost);
+    $(this).remove();
+    var request15MorePosts = {
+        "url": `https://jsonplaceholder.typicode.com/posts?_start=${flag}&_limit=15`,
+        "method": "GET",
+        "timeout": 0,
+    };
+    $.ajax(request15MorePosts).done(loadAllPosts);
 }
